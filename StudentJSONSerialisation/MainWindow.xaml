@@ -3,10 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:StudentJSONSerialisation"
+        xmlns:local="clr-namespace:StudentJSONSerialisation" xmlns:col="clr-namespace:System.Collections;assembly=System.Runtime.Extensions" xmlns:local1="clr-namespace:StudentJSONSerialisation.Entyties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="550" Width="800">
 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1">
+            <Button Height="90">Create student</Button>
+            <Button Height="90">Change student</Button>
+            <Button Height="90">Delete student</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <Button Name ="Students" Width="100">Students</Button>
+            <Button Name ="Groups" Width="100">Groups</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <DataGrid Height="auto" x:Name="studentGrid" AutoGenerateColumns="True">
+                <DataGrid.Resources>
+                    <col:ArrayList x:Key="Students">
+                        
+                    </col:ArrayList>
+                </DataGrid.Resources>
+            </DataGrid>
+        </StackPanel>
     </Grid>
+
 </Window>
