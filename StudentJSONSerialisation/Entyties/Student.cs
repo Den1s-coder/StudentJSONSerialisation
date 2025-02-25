@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace StudentJSONSerialisation.Entyties
 {
-    class Student
+    public class Student
     {
         public int id;
         public string FirstName;
