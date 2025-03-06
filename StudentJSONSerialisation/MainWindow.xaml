@@ -19,15 +19,17 @@
 
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1">
-            <Button Height="90">Create student</Button>
-            <Button Height="90">Change student</Button>
-            <Button Height="90">Delete student</Button>
+        <StackPanel Grid.Row="1" Background="#FF1C617C">
+            <Button Style="{StaticResource LeftMenuButton}">
+                <TextBlock Text="Create Student"/>
+            </Button>
+            <Button Style="{StaticResource LeftMenuButton}">Change student</Button>
+            <Button Style="{StaticResource LeftMenuButton}">Delete student</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Orientation="Horizontal">
-            <Button Name ="Students" Width="100">Students</Button>
-            <Button Name ="Groups" Width="100">Groups</Button>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Background="#FF193D9A">
+            <Button Style="{StaticResource ChoiseMenuButton}">Students</Button>
+            <Button Style="{StaticResource ChoiseMenuButton}">Groups</Button>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
