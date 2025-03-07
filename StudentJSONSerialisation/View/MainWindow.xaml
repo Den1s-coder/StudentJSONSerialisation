@@ -1,4 +1,4 @@
-﻿<Window x:Class="StudentJSONSerialisation.MainWindow"
+﻿<Window x:Class="StudentJSONSerialisation.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -20,10 +20,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" Background="#FF1C617C">
-            <Button Style="{StaticResource LeftMenuButton}">
+            <Button Style="{StaticResource LeftMenuButton}" Click="Button_Click">
                 <TextBlock Text="Create Student"/>
             </Button>
-            <Button Style="{StaticResource LeftMenuButton}">Change student</Button>
+            <Button Style="{StaticResource LeftMenuButton}" Click="Button_Click_1">Change student</Button>
             <Button Style="{StaticResource LeftMenuButton}">Delete student</Button>
         </StackPanel>
 
@@ -33,12 +33,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <DataGrid Height="auto" x:Name="studentGrid" AutoGenerateColumns="True">
-                <DataGrid.Resources>
-                    <col:ArrayList x:Key="Students">
-                        
-                    </col:ArrayList>
-                </DataGrid.Resources>
+            <DataGrid Height="400" x:Name="studentGrid" ItemsSource="{Binding Students}">
             </DataGrid>
         </StackPanel>
     </Grid>
