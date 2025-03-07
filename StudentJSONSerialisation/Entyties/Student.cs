@@ -10,10 +10,10 @@ namespace StudentJSONSerialisation.Entyties
 {
     public class Student
     {
-        public int id;
-        public string FirstName;
-        public string LastName;
-        public int Age;
+        public int id {  get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
 
         private static int _nextId = 1;
 
