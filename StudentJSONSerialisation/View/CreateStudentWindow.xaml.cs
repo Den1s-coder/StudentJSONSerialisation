@@ -36,13 +36,9 @@ namespace StudentJSONSerialisation.View
             LastName = LastNameBox.Text;
             if (int.TryParse(AgeBox.Text, out int Age))
             {
-                MainWindow.Students.Add(Student.CreateStudent(FirstName, LastName, Age));
-                
+                MainWindow.Students.Add(Student.CreateStudent(FirstName, LastName, Age));   
             }
-            else
-            {
-                MessageBox.Show("Помилка: Невірний формат віку");
-            }
+            else MessageBox.Show("Помилка: Невірний формат віку");
         }
     }
 }
