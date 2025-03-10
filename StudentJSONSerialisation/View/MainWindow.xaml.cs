@@ -1,15 +1,9 @@
 ﻿using StudentJSONSerialisation.Entyties;
 using System.Collections.ObjectModel;
-using System.Text;
+using System.Collections.Specialized;
+using System.IO;
+using System.Text.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace StudentJSONSerialisation.View
 {
@@ -27,6 +21,24 @@ namespace StudentJSONSerialisation.View
 
             Students = new ObservableCollection<Student>();
             DataContext = this;
+
+            Students.CollectionChanged += Students_CollectionChanged;
+        }
+
+        private void Students_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if(e.Action == NotifyCollectionChangedAction.Add)
+            {
+                StudentSerialise();
+            }
+        }
+
+        private void StudentSerialise()
+        {
+            string studentJson = JsonSerializer.Serialize(Students, new JsonSerializerOptions { WriteIndented = true });
+
+            string fileName = $"Students.json";
+            File.WriteAllText(fileName, studentJson);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
+using System.Text.Json;
 using System.Windows;
-using System.Xml.Linq;
 
 namespace StudentJSONSerialisation.Entyties
 {
@@ -32,6 +28,8 @@ namespace StudentJSONSerialisation.Entyties
                 MessageBox.Show("Ім'я та прізвище не може бути порожньою або складатися лише з пробілів.");
                 return null;
             }
+
+
 
             return new Student(firstName, lastName, age);
         }
