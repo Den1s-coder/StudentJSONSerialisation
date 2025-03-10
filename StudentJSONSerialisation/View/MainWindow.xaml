@@ -24,6 +24,7 @@
                 <TextBlock Text="Create Student"/>
             </Button>
             <Button Style="{StaticResource LeftMenuButton}" Click="Button_Click_1">Change student</Button>
+            <Button Style="{StaticResource LeftMenuButton}" Click="Button_Click_2" >Load student</Button>
             <Button Style="{StaticResource LeftMenuButton}">Delete student</Button>
         </StackPanel>
 

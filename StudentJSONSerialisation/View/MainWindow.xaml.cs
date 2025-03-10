@@ -1,4 +1,5 @@
-﻿using StudentJSONSerialisation.Entyties;
+﻿using Microsoft.Win32;
+using StudentJSONSerialisation.Entyties;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.IO;
@@ -9,6 +10,8 @@ namespace StudentJSONSerialisation.View
 {
     public partial class MainWindow : Window
     {
+        private string fileName = $"Students.json";
+
         public static CreateStudentWindow? CreateWindow;
         public static ChangeStudentWindow? ChangeWindow;
 
@@ -37,7 +40,6 @@ namespace StudentJSONSerialisation.View
         {
             string studentJson = JsonSerializer.Serialize(Students, new JsonSerializerOptions { WriteIndented = true });
 
-            string fileName = $"Students.json";
             File.WriteAllText(fileName, studentJson);
         }
 
@@ -59,6 +61,11 @@ namespace StudentJSONSerialisation.View
                 ChangeWindow.Closed += (s, args) => CreateWindow = null;
                 ChangeWindow.Show();
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e) //TODO load student json
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
         }
     }
 }
