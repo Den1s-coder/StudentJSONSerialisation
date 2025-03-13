@@ -10,6 +10,7 @@ namespace StudentJSONSerialisation.Entyties
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
+        public Group? Group { get; set; }
 
         private static int _nextId = 1;
 
@@ -29,9 +30,12 @@ namespace StudentJSONSerialisation.Entyties
                 return null;
             }
 
-
-
             return new Student(firstName, lastName, age);
+        }
+
+        public void SetGroup(string group) //TODO realise processe set group
+        {
+
         }
     }
 }
