@@ -46,7 +46,7 @@ namespace StudentJSONSerialisation.View
             File.WriteAllText(fileName, studentJson);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CreateStudentButton(object sender, RoutedEventArgs e)
         {
             if (CreateWindow == null)
             {
@@ -56,31 +56,26 @@ namespace StudentJSONSerialisation.View
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            if (ChangeWindow == null) 
-            {
-                ChangeWindow = new ChangeStudentWindow();
-                ChangeWindow.Closed += (s, args) => CreateWindow = null;
-                ChangeWindow.Show();
-            }
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e) //TODO load student json
+        private void LoadButton(object sender, RoutedEventArgs e) //TODO load student json
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void ShowStudentButton(object sender, RoutedEventArgs e)
         {
             studentGrid.Visibility = Visibility.Visible;
             groupGrid.Visibility = Visibility.Collapsed;
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void ShowGroupsButton(object sender, RoutedEventArgs e)
         {
             studentGrid.Visibility = Visibility.Collapsed;
             groupGrid.Visibility = Visibility.Visible;
+        }
+
+        private void CreteGroupButton(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

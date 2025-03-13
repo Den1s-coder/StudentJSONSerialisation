@@ -20,17 +20,18 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" Background="#FF1C617C">
-            <Button Style="{StaticResource LeftMenuButton}" Click="Button_Click">
+            <Button Style="{StaticResource LeftMenuButton}" Click="CreateStudentButton">
                 <TextBlock Text="Create Student"/>
             </Button>
-            <Button Style="{StaticResource LeftMenuButton}" Click="Button_Click_1">Change student</Button>
-            <Button Style="{StaticResource LeftMenuButton}" Click="Button_Click_2" >Load student</Button>
+            <Button Style="{StaticResource LeftMenuButton}" Click="CreteGroupButton" >Create Group</Button>
+            <Button Style="{StaticResource LeftMenuButton}" Click="LoadButton" >Load student</Button>
+
             <Button Style="{StaticResource LeftMenuButton}">Delete student</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Orientation="Horizontal" Background="#FF193D9A">
-            <Button Style="{StaticResource ChoiseMenuButton}" Click="Button_Click_3">Students</Button>
-            <Button Style="{StaticResource ChoiseMenuButton}" Click="Button_Click_4">Groups</Button>
+            <Button Style="{StaticResource ChoiseMenuButton}" Click="ShowStudentButton">Students</Button>
+            <Button Style="{StaticResource ChoiseMenuButton}" Click="ShowGroupsButton">Groups</Button>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
