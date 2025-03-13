@@ -13,8 +13,8 @@ namespace StudentJSONSerialisation.View
     {
         private string fileName = $"Students.json";
 
-        public static CreateStudentWindow? CreateWindow;
-        public static ChangeStudentWindow? ChangeWindow;
+        public static CreateStudentWindow? CreateStudWindow;
+        public static CreateGroupWindow? CreateGroupWindow;
 
         public static ObservableCollection<Student>? Students { get; set; }
         public static ObservableCollection<Group>? Groups { get; set; }
@@ -48,11 +48,11 @@ namespace StudentJSONSerialisation.View
 
         private void CreateStudentButton(object sender, RoutedEventArgs e)
         {
-            if (CreateWindow == null)
+            if (CreateStudWindow == null)
             {
-                CreateWindow = new CreateStudentWindow();
-                CreateWindow.Closed += (s, args) => CreateWindow = null;
-                CreateWindow.Show();
+                CreateStudWindow = new CreateStudentWindow();
+                CreateStudWindow.Closed += (s, args) => CreateStudWindow = null;
+                CreateStudWindow.Show();
             }
         }
 
@@ -75,7 +75,12 @@ namespace StudentJSONSerialisation.View
 
         private void CreteGroupButton(object sender, RoutedEventArgs e)
         {
-
+            if (CreateGroupWindow == null)
+            {
+                CreateGroupWindow = new CreateGroupWindow();
+                CreateGroupWindow.Closed += (s, args) => CreateGroupWindow = null;
+                CreateGroupWindow.Show();
+            }
         }
     }
 }

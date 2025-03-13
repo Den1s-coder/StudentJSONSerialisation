@@ -7,10 +7,10 @@ using System.Windows;
 
 namespace StudentJSONSerialisation.Entyties
 {
-    class Group
+    public class Group
     {
-        int ID;
-        string Name;
+        public int ID { get; set; }
+        public string Name { get; set; }
         List<Student> Students;
 
         private static int _nextId = 1;

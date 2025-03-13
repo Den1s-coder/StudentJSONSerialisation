@@ -15,17 +15,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition />
-
-
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" Background="#FF1C617C">
-            <Button Style="{StaticResource LeftMenuButton}" Click="CreateStudentButton">
-                <TextBlock Text="Create Student"/>
-            </Button>
+            <Button Style="{StaticResource LeftMenuButton}" Click="CreateStudentButton">Create Student</Button>
             <Button Style="{StaticResource LeftMenuButton}" Click="CreteGroupButton" >Create Group</Button>
             <Button Style="{StaticResource LeftMenuButton}" Click="LoadButton" >Load student</Button>
-
             <Button Style="{StaticResource LeftMenuButton}">Delete student</Button>
         </StackPanel>
 
@@ -40,8 +35,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <DataGrid Height="400" x:Name="groupGrid" ItemsSource="{Binding Groups}">
-            </DataGrid>
+            <DataGrid Height="400" x:Name="groupGrid" ItemsSource="{Binding Groups}"/>
         </StackPanel>
     </Grid>
 
