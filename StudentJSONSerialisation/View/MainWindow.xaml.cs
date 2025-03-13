@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace StudentJSONSerialisation.View
 {
@@ -16,6 +17,7 @@ namespace StudentJSONSerialisation.View
         public static ChangeStudentWindow? ChangeWindow;
 
         public static ObservableCollection<Student>? Students { get; set; }
+        public static ObservableCollection<Group>? Groups { get; set; }
 
 
         public MainWindow()
@@ -23,6 +25,7 @@ namespace StudentJSONSerialisation.View
             InitializeComponent();
 
             Students = new ObservableCollection<Student>();
+            Groups = new ObservableCollection<Group>();
             DataContext = this;
 
             Students.CollectionChanged += Students_CollectionChanged;
@@ -66,6 +69,18 @@ namespace StudentJSONSerialisation.View
         private void Button_Click_2(object sender, RoutedEventArgs e) //TODO load student json
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            studentGrid.Visibility = Visibility.Visible;
+            groupGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            studentGrid.Visibility = Visibility.Collapsed;
+            groupGrid.Visibility = Visibility.Visible;
         }
     }
 }

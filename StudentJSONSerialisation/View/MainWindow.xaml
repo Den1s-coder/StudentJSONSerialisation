@@ -29,12 +29,17 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Orientation="Horizontal" Background="#FF193D9A">
-            <Button Style="{StaticResource ChoiseMenuButton}">Students</Button>
-            <Button Style="{StaticResource ChoiseMenuButton}">Groups</Button>
+            <Button Style="{StaticResource ChoiseMenuButton}" Click="Button_Click_3">Students</Button>
+            <Button Style="{StaticResource ChoiseMenuButton}" Click="Button_Click_4">Groups</Button>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
             <DataGrid Height="400" x:Name="studentGrid" ItemsSource="{Binding Students}">
+            </DataGrid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <DataGrid Height="400" x:Name="groupGrid" ItemsSource="{Binding Groups}">
             </DataGrid>
         </StackPanel>
     </Grid>
