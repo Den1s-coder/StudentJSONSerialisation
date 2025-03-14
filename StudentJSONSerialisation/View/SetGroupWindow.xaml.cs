@@ -30,8 +30,8 @@ namespace StudentJSONSerialisation.View
         {
             if (selectedStudent != null && selectedGroup != null)
             {
-                selectedStudent.FirstName = selectedGroup.Name; 
-                MessageBox.Show($"Студент {selectedStudent.FirstName} тепер у групі {selectedGroup.Name}");
+                selectedStudent.Group = selectedGroup; 
+                selectedGroup.AddStudent(selectedStudent);
             }
             else
             {

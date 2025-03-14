@@ -30,6 +30,7 @@ namespace StudentJSONSerialisation.View
             DataContext = this;
 
             Students.CollectionChanged += Students_CollectionChanged;
+            Student.GroupChanged += (s, e) => StudentSerialise();
         }
 
         private void Students_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

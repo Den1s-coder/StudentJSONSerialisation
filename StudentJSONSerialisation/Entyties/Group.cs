@@ -10,8 +10,8 @@ namespace StudentJSONSerialisation.Entyties
     public class Group
     {
         public int ID { get; set; }
-        public string Name { get; set; }
-        List<Student> Students;
+        public string? Name { get; set; }
+        private List<Student> Students { get; set; }
 
         private static int _nextId = 1;
 
@@ -38,8 +38,7 @@ namespace StudentJSONSerialisation.Entyties
 
             return new Group(name);
         }
-
-        public void AddStudent(Student student) 
+        public void AddStudent(Student student)
         {
             if (student == Students.FirstOrDefault(X => X.id == student.id))
             {
@@ -48,12 +47,6 @@ namespace StudentJSONSerialisation.Entyties
             }
             Students.Add(student);
             MessageBox.Show($"Студента {student.FirstName} {student.LastName} додано до групи {Name}.");
-        }
-
-        public void RemoveStudent(Student student) 
-        {
-            Students.Remove(student);
-            MessageBox.Show($"Студент {student.FirstName} {student.LastName} видалений з групи {Name}.");
         }
 
         public void ChangeName(string name) 
@@ -80,6 +73,6 @@ namespace StudentJSONSerialisation.Entyties
             MessageBox.Show("Назву групи успішно змінено.");
         }
 
-        public override string ToString() { return $"{ID} {Name}"; }
+        public override string ToString() { return $"{Name}"; }
     }
 }
