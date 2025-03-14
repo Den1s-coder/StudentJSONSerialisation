@@ -79,5 +79,7 @@ namespace StudentJSONSerialisation.Entyties
             Name = name;
             MessageBox.Show("Назву групи успішно змінено.");
         }
+
+        public override string ToString() { return $"{ID} {Name}"; }
     }
 }

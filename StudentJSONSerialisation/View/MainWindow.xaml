@@ -21,6 +21,7 @@
             <Button Style="{StaticResource LeftMenuButton}" Click="CreateStudentButton">Create Student</Button>
             <Button Style="{StaticResource LeftMenuButton}" Click="CreteGroupButton" >Create Group</Button>
             <Button Style="{StaticResource LeftMenuButton}" Click="LoadButton" >Load student</Button>
+            <Button Style="{StaticResource LeftMenuButton}" Click="Button_Click">Set Group</Button>
             <Button Style="{StaticResource LeftMenuButton}">Delete student</Button>
         </StackPanel>
 

@@ -8,7 +8,7 @@
         <Style x:Key="LeftMenuButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="#FFC7E6F3"/>
-            <Setter Property="Height" Value="90"/>
+            <Setter Property="Height" Value="80"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">

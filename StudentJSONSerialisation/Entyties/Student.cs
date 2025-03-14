@@ -1,6 +1,5 @@
-﻿using System.IO;
-using System.Text.Json;
-using System.Windows;
+﻿using System.Windows;
+using System.Xml.Linq;
 
 namespace StudentJSONSerialisation.Entyties
 {
@@ -33,9 +32,10 @@ namespace StudentJSONSerialisation.Entyties
             return new Student(firstName, lastName, age);
         }
 
-        public void SetGroup(string group) //TODO realise processe set group
+        public void SetGroup(int groupID) //TODO realise processe set group
         {
-
         }
+
+        public override string ToString() { return $"{id} {FirstName} {LastName}"; }
     }
 }
