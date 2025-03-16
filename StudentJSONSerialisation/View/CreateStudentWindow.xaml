@@ -10,7 +10,7 @@
         <TextBox x:Name="FirsNameBox" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="LastNameBox" HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="AgeBox" HorizontalAlignment="Center" Margin="0,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Style="{StaticResource AnotherWindowsButton}"  Content="Створити" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Style="{StaticResource AnotherWindowsButton}"  Content="Create" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <Label Content="Ім'я студента:" HorizontalAlignment="Left" Margin="86,24,0,0" VerticalAlignment="Top" Height="26"/>
         <Label Content="Прізвище студента:" HorizontalAlignment="Left" Margin="86,73,0,0" VerticalAlignment="Top"/>
         <Label Content="Вік студента:" HorizontalAlignment="Left" Margin="86,124,0,0" VerticalAlignment="Top"/>

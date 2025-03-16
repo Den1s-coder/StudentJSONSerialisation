@@ -16,6 +16,7 @@ namespace StudentJSONSerialisation.View
         public static CreateStudentWindow? CreateStudWindow;
         public static CreateGroupWindow? CreateGroupWindow;
         public static SetGroupWindow? SetGroupWindow;
+        public static DeleteStudentWindow? DeleteStudentWindow;
 
         public static ObservableCollection<Student>? Students { get; set; }
         public static ObservableCollection<Group>? Groups { get; set; }
@@ -111,13 +112,23 @@ namespace StudentJSONSerialisation.View
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SetGroupButton(object sender, RoutedEventArgs e)
         {
             if (SetGroupWindow == null)
             {
                 SetGroupWindow = new SetGroupWindow();
                 SetGroupWindow.Closed += (s, args) => SetGroupWindow = null;
                 SetGroupWindow.Show();
+            }
+        }
+
+        private void DeleteStudentButton(object sender, RoutedEventArgs e)
+        {
+            if (DeleteStudentWindow == null)
+            {
+                DeleteStudentWindow = new DeleteStudentWindow();
+                DeleteStudentWindow.Closed += (s, args) => DeleteStudentWindow = null;
+                DeleteStudentWindow.Show();
             }
         }
     }

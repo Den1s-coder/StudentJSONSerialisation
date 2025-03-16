@@ -9,7 +9,7 @@
     <Grid>
         <ComboBox x:Name="StudentComboBox" SelectedItem="{Binding selectedStudent}" HorizontalAlignment="Center" ItemsSource="{Binding Students}" Margin="0,62,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="GroupComboBox" SelectedItem="{Binding selectedGroup}" HorizontalAlignment="Center" ItemsSource="{Binding Groups}" VerticalAlignment="Center" Width="120"/>
-        <Button Style="{StaticResource AnotherWindowsButton}" Content="Button" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Click="ChangeGroupButton"/>
+        <Button Style="{StaticResource AnotherWindowsButton}" Content="Set" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Click="ChangeGroupButton"/>
         <Label Content="Student:" HorizontalAlignment="Left" Margin="86,36,0,0" VerticalAlignment="Top"/>
         <Label Content="Group:" HorizontalAlignment="Left" Margin="86,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,0.276"/>
 
