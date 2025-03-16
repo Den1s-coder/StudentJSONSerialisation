@@ -58,9 +58,35 @@ namespace StudentJSONSerialisation.View
             }
         }
 
-        private void LoadButton(object sender, RoutedEventArgs e) //TODO load student json
+        private void LoadButton(object sender, RoutedEventArgs e) 
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Filter = "JSON файли (*.json)|*.json|Усі файли (*.*)|*.*"
+            };
+
+            if (ofd.ShowDialog() == true)
+            {
+                string json = File.ReadAllText(ofd.FileName);
+                List<Student>? students = JsonSerializer.Deserialize<List<Student>>(json);
+
+                if (students.Count > 0)
+                {
+                    for (int i = 0; i < students.Count; i++)
+                    {
+                        Students.Add(students[i]);
+                        if (students[i].id > Student._nextId) Student._nextId = students[i].id + 1;
+                        if (students[i].Group != null)
+                        {
+                            Groups.Add(students[i].Group);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Файл порожній або не містить коректних даних.");
+                }
+            }
         }
 
         private void ShowStudentButton(object sender, RoutedEventArgs e)

@@ -27,8 +27,9 @@ namespace StudentJSONSerialisation.Entyties
 
         public static event EventHandler? GroupChanged; // Подія для серіалізації
 
-        private static int _nextId = 1;
+        public static int _nextId = 1;
 
+        [JsonConstructor]
         private Student(string firstName, string lastName, int age)
         {
             id = _nextId++;
