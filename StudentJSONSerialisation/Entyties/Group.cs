@@ -24,22 +24,7 @@ namespace StudentJSONSerialisation.Entyties
             Students = [];
         }
 
-        public static Group? CreateGroup(string name) 
-        {
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                MessageBox.Show("Назва групи не може бути порожньою або складатися лише з пробілів.");
-                return null;
-            }
-
-            if (name.Length < 3 || name.Length > 50)
-            {
-                MessageBox.Show("Назва групи має містити від 3 до 50 символів.");
-                return null;
-            }
-
-            return new Group(name);
-        }
+        public static Group CreateGroup(string name) { return new Group(name); }
         public void AddStudent(Student student)
         {
             if (student == Students.FirstOrDefault(X => X.id == student.id))
@@ -56,7 +41,7 @@ namespace StudentJSONSerialisation.Entyties
             MessageBox.Show($"Студента {student.FirstName} {student.LastName} додано до групи {Name}.");
         }
 
-        private void RemoveStudent(Student student) 
+        public void RemoveStudent(Student student) 
         {
             student.Group.Students.Remove(student);
         }

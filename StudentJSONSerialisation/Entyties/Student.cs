@@ -38,16 +38,7 @@ namespace StudentJSONSerialisation.Entyties
             Age = age;
         }
 
-        public static Student? CreateStudent(string firstName, string lastName, int age)
-        {
-            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName))
-            {
-                MessageBox.Show("Ім'я та прізвище не може бути порожньою або складатися лише з пробілів.");
-                return null;
-            }
-
-            return new Student(firstName, lastName, age);
-        }
+        public static Student CreateStudent(string firstName, string lastName, int age){ return new Student(firstName, lastName, age);}
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

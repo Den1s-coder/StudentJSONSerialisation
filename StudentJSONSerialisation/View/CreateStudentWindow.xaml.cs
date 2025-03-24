@@ -32,8 +32,15 @@ namespace StudentJSONSerialisation.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FirstName = FirsNameBox.Text;
-            LastName = LastNameBox.Text;
+            FirstName = FirsNameBox.Text.Trim();
+            LastName = LastNameBox.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(LastName))
+            {
+                MessageBox.Show("Ім'я та прізвище не може бути порожньою або складатися лише з пробілів.");
+                return;
+            }
+
             if (int.TryParse(AgeBox.Text, out int Age))
             {
                 MainWindow.Students.Add(Student.CreateStudent(FirstName, LastName, Age));   
