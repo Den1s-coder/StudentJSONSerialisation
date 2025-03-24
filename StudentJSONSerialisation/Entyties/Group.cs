@@ -47,8 +47,18 @@ namespace StudentJSONSerialisation.Entyties
                 MessageBox.Show("Цей студент вже присутній в цій групі");
                 return;
             }
+
+            if (student.Group != null) 
+            {
+                student.Group.RemoveStudent(student);
+            }
             Students.Add(student);
             MessageBox.Show($"Студента {student.FirstName} {student.LastName} додано до групи {Name}.");
+        }
+
+        private void RemoveStudent(Student student) 
+        {
+            student.Group.Students.Remove(student);
         }
 
         public void ChangeName(string name) 
