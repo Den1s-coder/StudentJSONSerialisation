@@ -23,7 +23,10 @@ namespace StudentJSONSerialisation.View
             if (selectedStudent != null)
             {
                 Students.Remove(selectedStudent);
-                selectedStudent.Group.RemoveStudent(selectedStudent);
+                if (selectedStudent != null)
+                {
+                    selectedStudent.Group.RemoveStudent(selectedStudent);
+                }
             }
             else
             {
