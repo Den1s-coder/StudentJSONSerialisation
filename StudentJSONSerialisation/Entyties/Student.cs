@@ -1,9 +1,5 @@
-﻿using StudentJSONSerialisation.View;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Xml.Linq;
 
 namespace StudentJSONSerialisation.Entyties
 {

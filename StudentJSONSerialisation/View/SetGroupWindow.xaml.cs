@@ -4,9 +4,6 @@ using System.Windows;
 
 namespace StudentJSONSerialisation.View
 {
-    /// <summary>
-    /// Логика взаимодействия для SetGroupWindow.xaml
-    /// </summary>
     public partial class SetGroupWindow : Window
     {
         public ObservableCollection<Student> Students { get; set; }
