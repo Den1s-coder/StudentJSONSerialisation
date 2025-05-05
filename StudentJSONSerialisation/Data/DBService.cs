@@ -30,40 +30,21 @@ namespace StudentJSONSerialisation.Data
             cmd.ExecuteNonQuery();
         }
 
-        public static void LoadData(out List<Student> students, out List<Group> groups)
+        public static List<Student> LoadStudents(List<Group> groups)
         {
-            students = new();
-            groups = new();
-
-            Dictionary<int, Group> groupDict = new();
-
+            List<Student> students = new();
             using SqlConnection conn = new(_connectionString);
             conn.Open();
 
-            SqlCommand cmd = new("SELECT s.Id, s.FirstName, s.LastName, s.Age, g.Id AS GroupId, g.Name AS GroupName " +
-                                 "FROM Students s LEFT JOIN Groups g ON s.GroupId = g.Id", conn);
+            SqlCommand cmd = new("SELECT Id, FirstName, LastName, Age, GroupId FROM Students", conn);
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                Group? group = null;
+                int groupId = reader.IsDBNull(4) ? -1 : reader.GetInt32(4);
+                Group? group = groups.FirstOrDefault(g => g.ID == groupId);
 
-                if (!reader.IsDBNull(4))
-                {
-                    int groupId = reader.GetInt32(4);
-                    string groupName = reader.GetString(5);
-
-                    if (!groupDict.ContainsKey(groupId))
-                    {
-                        group = Group.CreateGroup(groupName);
-                        group.ID = groupId;
-                        groupDict.Add(groupId, group);
-                    }
-
-                    group = groupDict[groupId];
-                }
-
-                var student = new Student(
+                Student student = new Student(
                     reader.GetString(1),
                     reader.GetString(2),
                     reader.GetInt32(3))
@@ -75,7 +56,26 @@ namespace StudentJSONSerialisation.Data
                 students.Add(student);
             }
 
-            groups.AddRange(groupDict.Values);
+            return students;
+        }
+
+        public static List<Group> LoadGroups()
+        {
+            List<Group> groups = new();
+            using SqlConnection conn = new(_connectionString);
+            conn.Open();
+
+            SqlCommand cmd = new("SELECT Id, Name FROM Groups", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Group group = Group.CreateGroup(reader.GetString(1));
+                group.ID = reader.GetInt32(0);
+                groups.Add(group);
+            }
+
+            return groups;
         }
 
         public static void UpdateStudent(Student student)

@@ -63,15 +63,16 @@ namespace StudentJSONSerialisation.View
         {
             try
             {
-                DBService.LoadData(out var loadedStudents, out var loadedGroups);
+                List<Group> groups = DBService.LoadGroups();
+                List<Student> students = DBService.LoadStudents(groups);
 
                 Students.Clear();
                 Groups.Clear();
 
-                foreach (var g in loadedGroups)
+                foreach (var g in groups)
                     Groups.Add(g);
 
-                foreach (var s in loadedStudents)
+                foreach (var s in students)
                 {
                     Students.Add(s);
                     if (s.id > Student._nextId)
