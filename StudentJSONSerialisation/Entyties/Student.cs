@@ -26,7 +26,7 @@ namespace StudentJSONSerialisation.Entyties
         public static int _nextId = 1;
 
         [JsonConstructor]
-        private Student(string firstName, string lastName, int age)
+        public Student(string firstName, string lastName, int age)
         {
             id = _nextId++;
             FirstName = firstName;
