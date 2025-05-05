@@ -1,4 +1,5 @@
-﻿using StudentJSONSerialisation.Entyties;
+﻿using StudentJSONSerialisation.Data;
+using StudentJSONSerialisation.Entyties;
 using System.Windows;
 
 namespace StudentJSONSerialisation.View
@@ -27,7 +28,9 @@ namespace StudentJSONSerialisation.View
 
             if (int.TryParse(AgeBox.Text, out int Age))
             {
-                MainWindow.Students.Add(Student.CreateStudent(FirstName, LastName, Age));   
+                MainWindow.Students.Add(Student.CreateStudent(FirstName, LastName, Age));
+
+                DBService.AddStudent(Student.CreateStudent(FirstName, LastName, Age));
             }
             else MessageBox.Show("Помилка: Невірний формат віку");
         }

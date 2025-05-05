@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using StudentJSONSerialisation.Data;
 using StudentJSONSerialisation.Entyties;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -60,32 +61,28 @@ namespace StudentJSONSerialisation.View
 
         private void LoadButton(object sender, RoutedEventArgs e) 
         {
-            OpenFileDialog ofd = new OpenFileDialog
+            try
             {
-                Filter = "JSON файли (*.json)|*.json|Усі файли (*.*)|*.*"
-            };
+                DBService.LoadData(out var loadedStudents, out var loadedGroups);
 
-            if (ofd.ShowDialog() == true)
+                Students.Clear();
+                Groups.Clear();
+
+                foreach (var g in loadedGroups)
+                    Groups.Add(g);
+
+                foreach (var s in loadedStudents)
+                {
+                    Students.Add(s);
+                    if (s.id > Student._nextId)
+                        Student._nextId = s.id + 1;
+                }
+
+                MessageBox.Show("Дані успішно завантажено з бази даних.");
+            }
+            catch (Exception ex)
             {
-                string json = File.ReadAllText(ofd.FileName);
-                List<Student>? students = JsonSerializer.Deserialize<List<Student>>(json);
-
-                if (students.Count > 0)
-                {
-                    for (int i = 0; i < students.Count; i++)
-                    {
-                        Students.Add(students[i]);
-                        if (students[i].id > Student._nextId) Student._nextId = students[i].id + 1;
-                        if (students[i].Group != null)
-                        {
-                            Groups.Add(students[i].Group);
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Файл порожній або не містить коректних даних.");
-                }
+                MessageBox.Show($"Помилка при завантаженні даних: {ex.Message}");
             }
         }
 
