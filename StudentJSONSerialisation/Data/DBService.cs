@@ -48,7 +48,7 @@ namespace StudentJSONSerialisation.Data
             {
                 Group? group = null;
 
-                if (!reader.IsDBNull(4)) 
+                if (!reader.IsDBNull(4))
                 {
                     int groupId = reader.GetInt32(4);
                     string groupName = reader.GetString(5);
@@ -78,7 +78,20 @@ namespace StudentJSONSerialisation.Data
             groups.AddRange(groupDict.Values);
         }
 
+        public static void UpdateStudent(Student student)
+        {
+            using SqlConnection conn = new(_connectionString);
+            conn.Open();
 
-        //TODO Update student after added him to group
+            SqlCommand cmd = new("UPDATE Students SET FirstName = @f, LastName = @l, Age = @a, GroupId = @g WHERE Id = @id",conn);
+
+            cmd.Parameters.AddWithValue("@f", student.FirstName);
+            cmd.Parameters.AddWithValue("@l", student.LastName);
+            cmd.Parameters.AddWithValue("@a", student.Age);
+            cmd.Parameters.AddWithValue("@g", student.Group?.ID ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@id", student.id);
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using StudentJSONSerialisation.Entyties;
+﻿using StudentJSONSerialisation.Data;
+using StudentJSONSerialisation.Entyties;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -29,6 +30,8 @@ namespace StudentJSONSerialisation.View
             {
                 selectedStudent.Group = selectedGroup; 
                 selectedGroup.AddStudent(selectedStudent);
+
+                DBService.UpdateStudent(selectedStudent);
             }
             else
             {
