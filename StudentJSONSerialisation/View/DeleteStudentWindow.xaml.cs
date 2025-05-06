@@ -1,4 +1,5 @@
-﻿using StudentJSONSerialisation.Entyties;
+﻿using StudentJSONSerialisation.Data;
+using StudentJSONSerialisation.Entyties;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -22,6 +23,7 @@ namespace StudentJSONSerialisation.View
         {
             if (selectedStudent != null)
             {
+                DBService.DeleteStudent(selectedStudent);
                 Students.Remove(selectedStudent);
                 if (selectedStudent != null)
                 {

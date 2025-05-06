@@ -5,7 +5,7 @@ namespace StudentJSONSerialisation.Entyties
 {
     public class Student : INotifyPropertyChanged
     {
-        public int id {  get; set; }
+        public int id;
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
@@ -21,7 +21,7 @@ namespace StudentJSONSerialisation.Entyties
             }
         }
 
-        public static event EventHandler? GroupChanged; // Подія для серіалізації
+        public static event EventHandler? GroupChanged; 
 
         public static int _nextId = 1;
 

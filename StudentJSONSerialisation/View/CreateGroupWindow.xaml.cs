@@ -31,6 +31,8 @@ namespace StudentJSONSerialisation.View
             MainWindow.Groups.Add(Group.CreateGroup(name));
 
             DBService.AddGroup(Group.CreateGroup(name));
+
+            MainWindow.Load();
         }
     }
 }

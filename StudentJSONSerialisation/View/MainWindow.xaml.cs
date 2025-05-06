@@ -61,6 +61,11 @@ namespace StudentJSONSerialisation.View
 
         private void LoadButton(object sender, RoutedEventArgs e) 
         {
+            Load();
+        }
+
+        public static void Load()
+        {
             try
             {
                 List<Group> groups = DBService.LoadGroups();
@@ -75,11 +80,9 @@ namespace StudentJSONSerialisation.View
                 foreach (var s in students)
                 {
                     Students.Add(s);
-                    if (s.id > Student._nextId)
+                    if (s.id >= Student._nextId)
                         Student._nextId = s.id + 1;
                 }
-
-                MessageBox.Show("Дані успішно завантажено з бази даних.");
             }
             catch (Exception ex)
             {
