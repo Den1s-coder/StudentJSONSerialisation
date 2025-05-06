@@ -5,8 +5,6 @@ namespace StudentJSONSerialisation.Data
 {
     public static class DBService
     {
-        private static string _connectionString = "Data Source=DESKTOP-KNGCD9Q;Initial Catalog=StudentAndGroups;Integrated Security=True";
-
         public static void AddStudent(Student student)
         {
             using SqlConnection conn = new(_connectionString);
