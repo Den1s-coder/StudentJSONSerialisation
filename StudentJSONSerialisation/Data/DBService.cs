@@ -93,5 +93,17 @@ namespace StudentJSONSerialisation.Data
 
             cmd.ExecuteNonQuery();
         }
+
+        public static void DeleteStudent(Student student)
+        {
+            using SqlConnection conn = new(_connectionString);
+            conn.Open();
+
+            SqlCommand cmd = new($"DELETE FROM Students WHERE Id = @id", conn);
+
+            cmd.Parameters.AddWithValue("@id", student.id);
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }
