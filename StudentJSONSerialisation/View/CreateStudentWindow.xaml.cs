@@ -28,9 +28,15 @@ namespace StudentJSONSerialisation.View
 
             if (int.TryParse(AgeBox.Text, out int Age))
             {
-                MainWindow.Students.Add(Student.CreateStudent(FirstName, LastName, Age));
+                if (Age >= 16 & Age <= 30)
+                {
+                    MainWindow.Students.Add(Student.CreateStudent(FirstName, LastName, Age));
 
-                DBService.AddStudent(Student.CreateStudent(FirstName, LastName, Age));
+                    DBService.AddStudent(Student.CreateStudent(FirstName, LastName, Age));
+
+                    MainWindow.Load();
+                }
+                else MessageBox.Show("Помилка: Дозволений вік від 16 до 30 років");
             }
             else MessageBox.Show("Помилка: Невірний формат віку");
         }
